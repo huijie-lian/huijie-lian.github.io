@@ -1,0 +1,24 @@
+- id: on_this_page
+  translation: On this page
+- id: languages
+  translation: Languages
+- id: minute_read
+  translation: min read
+- id: previous
+  translation: Previous
+- id: next
+  translation: Next
+- id: interests
+  translation: Interests
+- id: education
+  translation: Education
+- id: about_me
+  translation: Professional Summary
+- id: user_profile_latest
+  translation: Latest
+- id: read_more
+  translation: Read more
+- id: page_not_found
+  translation: Page not found
+- id: 404_recommendations
+  translation: Perhaps you were looking for one of these?

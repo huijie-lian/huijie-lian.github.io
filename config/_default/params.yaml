@@ -1,0 +1,20 @@
+# Site settings for the local Hugo templates.
+identity:
+  name: Huijie Lian
+  organization: ""
+  description: 连慧婕，东南大学物理学院博士二年级
+theme:
+  mode: light
+layout:
+  avatar_shape: square
+locale:
+  date_format: Jan 2, 2006
+copyright:
+  notice: © {year} {name}
+  license:
+    type: cc
+    allow_derivatives: false
+    share_alike: true
+    allow_commercial: false
+search:
+  enable: true

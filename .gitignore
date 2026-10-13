@@ -1,8 +1,12 @@
 # Temporary lock file while building
 .hugo_build.lock
 
-# Generated site output
+# Hugo build output and generated files
 public/
+resources/
+hugo_stats.json
+assets/jsconfig.json
+node_modules/
 
 # OS / editor
 .DS_Store
@@ -19,11 +23,4 @@ offline-preview/
 .offline-preview.yaml
 
 .tools/
-.template-source/
-academic-template.zip
-academic-site/node_modules/
-academic-site/resources/
-academic-site/hugo_stats.json
-academic-site/.hugo_build.lock
-.academic-public/
 tmp/

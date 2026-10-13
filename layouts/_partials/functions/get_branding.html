@@ -1,0 +1,1 @@
+{{- return (dict "name" site.Params.identity.name "site_title" site.Params.identity.name "organization" (site.Params.identity.organization | default site.Params.identity.name)) -}}

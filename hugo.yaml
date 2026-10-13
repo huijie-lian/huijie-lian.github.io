@@ -1,120 +1,78 @@
-title: "Huijie Lian" # (填写) 左上角以及浏览器Tab标题
-theme: ["PaperMod"]
-#netlify用
-baseURL: "https://hjlian.netlify.app" # (填写) netlify有网址了之后填写即可
-enableRobotsTXT: true # 启用 robots.txt
-enableEmoji: true # 启用 emoji 支持
-minify:
-  disableXML: true
-  minifyOutput: true
-
-# PaperMod 主题配置
-params:
-  author: "连慧婕/Huijie Lian" #(填写) 
-  description: "连慧婕，东南大学物理学院博士二年级学生，2025年9月入学。"
-
-  # 显示设置
-  ShowReadingTime: false      # 显示阅读时间
-  ShowShareButtons: false     # 显示分享按钮
-  ShowPostNavLinks: true     # 显示上一篇/下一篇
-  ShowBreadCrumbs: true      # 显示面包屑导航
-  ShowCodeCopyButtons: true  # 显示代码复制按钮
-  ShowWordCount: false        # 显示字数统计
-  displayFullLangName: true  # 显示语言全称
-  ShowOnlySelectedPubs: true # 首页仅展示 selected: true 的论文（设为 false 展示全部）
-  homeInfoParams:
-    imageUrl: "/images/portrait.jpg"  # (填写) 头像路径，照片位于static/images/portrait.jpg
-    imageWidth: 250
-    imageHeight: 350
-    imageTitle: Huijie Lian
-    buttons:
-      - name: GitHub
-        url: "https://github.com/Huijie-Lian/homepage"
-
-  # 可选图标链接
-  socialIcons:
-    - name: email
-      url: "mailto:230259170@seu.edu.cn"
-      title: "Email"
-
-# 语言设置、分语言的菜单设置
+# Standalone Hugo site; all templates and assets live in this repository.
+title: Huijie Lian
+baseURL: https://huijie-lian.github.io/
 defaultContentLanguage: zh
+hasCJKLanguage: true
 defaultContentLanguageInSubdir: true
-disableDefaultLanguageRedirect: false
-languages:
-  zh:
-    contentDir: content/zh
-    label: 中文
-    locale: zh-CN
-    weight: 1
-    params:
-      homeInfoParams:
-        # 中文首页标题  (填写) 
-        Title: "连慧婕 / Huijie Lian"
-        # 中文首页自我介绍，markdown格式  (填写) 
-        Content: |
-          东南大学物理学院博士二年级
-
-          邮箱：[230259170@seu.edu.cn](mailto:230259170@seu.edu.cn)
-
-          [关于我与联系方式](about/)
-    # 中文可选菜单
-    menu:
-      main:
-#        - identifier: home
-#          name: 首页
-#          pageRef: /
-#          weight: 10
-        - identifier: publications
-          name: 论文
-          pageRef: /pubs/
-          weight: 40
-    #    - identifier: teaching
-    #      name: 教学
-    #      pageRef: /teaching/
-    #      weight: 50
-        - identifier: about
-          name: 关于
-          pageRef: /about/
-          weight: 60
-  en:
-    contentDir: content/en
-    label: English
-    locale: en-US
-    weight: 2
-    params:
-      homeInfoParams:
-        # 英文首页标题 # (填写) 
-        Title: "连慧婕 / Huijie Lian"
-        # 英文首页自我介绍，markdown格式 # (填写) 
-        Content: |
-          I am a second-year PhD student in the School of Physics at Southeast University. I began my doctoral studies in September 2025.
-
-          Email: [230259170@seu.edu.cn](mailto:230259170@seu.edu.cn)
-
-          [About me and contact details](about/)
-    # 英文可选菜单
-    menu:
-      main:
-#        - identifier: home
-#          name: Home
-#          pageRef: /
-#          weight: 10
-        - identifier: publications
-          name: Publications
-          pageRef: /pubs/
-          weight: 40
-    #    - identifier: teaching
-    #      name: Teaching
-    #      pageRef: /teaching/
-    #      weight: 50
-        - identifier: about
-          name: About
-          pageRef: /about/
-          weight: 60
-
-
-
-
-
-
+removePathAccents: true
+enableGitInfo: false
+summaryLength: 30
+pagination:
+  pagerSize: 10
+enableEmoji: true
+enableRobotsTXT: true
+footnotereturnlinkcontents: <sup>^</sup>
+ignoreFiles: [".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
+disableAliases: false
+outputs:
+  home: [HTML, RSS, backlinks]
+  section: [HTML, RSS]
+outputFormats:
+  backlinks:
+    mediaType: application/json
+    baseName: backlinks
+    isPlainText: true
+    notAlternative: true
+imaging:
+  resampleFilter: lanczos
+  anchor: smart
+  jpeg:
+    quality: 90
+  webp:
+    quality: 90
+    hint: picture
+  avif:
+    quality: 90
+    hint: picture
+taxonomies:
+  author: authors
+  tag: tags
+  publication_type: publication_types
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    parser:
+      attribute:
+        block: true
+        title: true
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block: [['\\[', '\\]'], ['$$', '$$']]
+          inline: [['\\(', '\\)'], ['$', '$']]
+      extras:
+        mark:
+          enable: true
+        subscript:
+          enable: true
+        superscript:
+          enable: true
+  highlight:
+    lineNos: false
+    codeFences: true
+    lineNumbersInTable: false
+    noClasses: false
+    guessSyntax: true
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+minify:
+  minifyOutput: true
+  tdewolff:
+    html:
+      keepComments: true
+      keepSpecialComments: true
+sitemap:
+  changefreq: weekly

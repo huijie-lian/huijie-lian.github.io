@@ -1,0 +1,41 @@
+{
+  "slug": "huijie-lian",
+  "is_owner": false,
+  "name": {
+    "display": "Huijie Lian",
+    "given": "Huijie",
+    "family": "Lian",
+    "alternate": "连慧婕"
+  },
+  "role": "",
+  "bio": "Second-year PhD student, School of Physics, Southeast University.",
+  "links": [
+    {
+      "icon": "at-symbol",
+      "url": "mailto:hjlian@seu.edu.cn",
+      "label": "Email: hjlian@seu.edu.cn"
+    },
+    {
+      "icon": "brands/github",
+      "url": "https://github.com/huijie-lian/huijie-lian.github.io",
+      "label": "GitHub"
+    }
+  ],
+  "education": [
+    {
+      "degree": "PhD studies · School of Physics",
+      "institution": "Southeast University",
+      "year": "September 2025–present"
+    },
+    {
+      "degree": "Graduate studies · Condensed matter theory",
+      "institution": "Hebei Normal University",
+      "year": "2022.09–2025.06"
+    },
+    {
+      "degree": "Undergraduate studies · Physics",
+      "institution": "Hebei Normal University",
+      "year": "2018.09–2022.06"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "me-zh",
+  "is_owner": true,
+  "name": {
+    "display": "连慧婕",
+    "given": "Huijie",
+    "family": "Lian",
+    "alternate": "Huijie Lian"
+  },
+  "role": "",
+  "interests": [
+    "二维磁性",
+    "拓扑",
+    "铁电材料"
+  ],
+  "bio": "东南大学物理学院博士生二年级",
+  "links": [
+    {
+      "icon": "brands/github",
+      "url": "https://github.com/huijie-lian/huijie-lian.github.io",
+      "label": "GitHub"
+    }
+  ],
+  "education": [
+    {
+      "degree": "博士研究生 · 物理学院",
+      "institution": "东南大学",
+      "year": "2025.09—至今"
+    },
+    {
+      "degree": "硕士 · 凝聚态理论",
+      "institution": "河北师范大学",
+      "year": "2022.09–2025.06"
+    },
+    {
+      "degree": "本科 · 物理学",
+      "institution": "河北师范大学",
+      "year": "2018.09–2022.06"
+    }
+  ]
+}

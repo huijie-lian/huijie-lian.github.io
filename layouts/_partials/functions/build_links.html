@@ -1,0 +1,11 @@
+{{- $page := .page -}}{{- $links := slice -}}
+{{- range $page.Params.links -}}
+  {{- $type := .type | default "custom" -}}
+  {{- $icon := .icon | default "hero/link" -}}
+  {{- if eq $type "pdf" }}{{ $icon = "hero/document-text" }}{{ end -}}
+  {{- $links = $links | append (dict "type" $type "url" .url "icon" $icon "label" (.label | default ($type | upper)) "contexts" (.contexts | default (slice "list" "page")) "rel" .rel) -}}
+{{- end -}}
+{{- with $page.Params.ids.doi -}}
+  {{- $links = $links | append (dict "type" "doi" "url" (printf "https://doi.org/%s" .) "icon" "hero/link" "label" "DOI" "contexts" (slice "list" "page")) -}}
+{{- end -}}
+{{- return $links -}}

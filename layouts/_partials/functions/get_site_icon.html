@@ -1,0 +1,2 @@
+{{- $icon := resources.Get "media/icon.png" -}}
+{{- return (dict "resource" ($icon.Fill (printf "%dx%d Center" . .)) "is_svg" false "type" "image/png") -}}

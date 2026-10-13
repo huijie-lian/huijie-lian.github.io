@@ -1,0 +1,13 @@
+{{- $image := .image -}}{{- $variants := slice -}}{{- $srcset := slice -}}
+{{- $fallback := $image -}}
+{{- if reflect.IsImageResourceProcessable $image -}}
+  {{- range $width := .sizes -}}
+    {{- if ge $image.Width $width -}}
+      {{- $variant := $image.Process (printf "fill %dx%d webp %s" $width $width ($.anchor | default "Center")) -}}
+      {{- if eq (len $variants) 0 }}{{ $fallback = $variant }}{{ end -}}
+      {{- $variants = $variants | append $variant -}}
+      {{- $srcset = $srcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return (dict "fallback" $fallback "srcset" (delimit $srcset ", ")) -}}

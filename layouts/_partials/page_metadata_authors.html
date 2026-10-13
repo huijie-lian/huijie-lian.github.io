@@ -1,0 +1,33 @@
+{{/* Display author list. */}}
+
+{{- $authors := .Params.authors -}}
+
+{{ if $authors }}
+  {{- if not (reflect.IsSlice $authors) -}}
+    {{- $authors = slice $authors -}}
+  {{- end -}}
+
+  {{ range $index, $raw := $authors }}
+    {{- $slug := $raw | urlize -}}
+    {{- $profile := partial "functions/get_author_profile" (dict "slug" $slug "title" $raw) -}}
+    {{- $termPage := site.GetPage (printf "/authors/%s" $slug) -}}
+    {{- $display := $profile.title | default $raw -}}
+    {{- $highlight_name := in (slice "me-zh" "me-en" "huijie-lian") $slug -}}
+    {{- if $highlight_name }}{{ $display = "Huijie Lian" }}{{ end -}}
+
+    {{- if gt $index 0 }}, {{ end -}}
+    <span {{ if $highlight_name }}class="font-bold"{{end}}>
+      {{- if $termPage -}}
+        <a href="{{ $termPage.RelPermalink }}">{{ $display }}</a>
+      {{- else -}}
+        {{ $display }}
+      {{- end -}}
+      {{- if in ($.Params.equal_contributors | default slice) $raw -}}
+        <sup class="academic-author-mark" title="{{ if eq site.Language.Lang "zh" }}共同第一作者{{ else }}Co-first author{{ end }}">†</sup>
+      {{- end -}}
+      {{- if in ($.Params.corresponding_authors | default slice) $raw -}}
+        <sup class="academic-author-mark" title="{{ if eq site.Language.Lang "zh" }}通讯作者{{ else }}Corresponding author{{ end }}">*</sup>
+      {{- end -}}
+    </span>
+  {{- end -}}
+{{- end -}}
