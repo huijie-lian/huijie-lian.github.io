@@ -1,0 +1,6 @@
+{{- $slug := . -}}{{- $raw := "" -}}
+{{- if reflect.IsMap . }}{{ $slug = .slug }}{{ $raw = .title | default "" }}{{ else }}{{ $raw = . }}{{ end -}}
+{{- $slug = $slug | urlize -}}
+{{- $data := index hugo.Data.authors $slug | default dict -}}
+{{- $title := $data.name.display | default $data.title | default $raw | default ($slug | humanize | title) -}}
+{{- return (merge $data (dict "slug" $slug "title" $title "name_pronunciation" ($data.name.pronunciation | default "") "avatar" (resources.GetMatch (printf "media/authors/%s.*" $slug)))) -}}

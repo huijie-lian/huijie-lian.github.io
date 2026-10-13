@@ -1,7 +1,5 @@
 ---
-title: 'About'
-disableShare: true
-hidemeta: true
+title: About
 showToc: false
 ---
 
@@ -9,14 +7,28 @@ Second-year PhD student, School of Physics, Southeast University. Enrolled in 20
 
 ## Education
 
-- September 2025–present: PhD student, School of Physics, Southeast University.
-- 2022–2025: Hebei Normal University, graduate studies in condensed matter theory.
-- 2018–2022: Undergraduate studies in physics, Hebei Normal University.
+- September 2025–present: PhD student, School of Physics, Southeast University
+- September 2022–June 2025: Graduate studies in condensed matter theory, Hebei Normal University
+- September 2018–June 2022: Undergraduate studies in physics, Hebei Normal University
+
+## Honors and awards
+
+- 2025: Outstanding Graduate of Hebei Province
+- 2025: Merit Student of Hebei Province
+- 2024: National Scholarship for Graduate Students
+- 2024: First-Class Academic Scholarship for Graduate Students
+- 2024: Merit Student, Hebei Normal University
+
+## Personal information
+
+- Hometown: Handan, Hebei, China
 
 ## Contact
 
-- Email: [230259170@seu.edu.cn](mailto:230259170@seu.edu.cn)
+- Email: [hjlian@seu.edu.cn](mailto:hjlian@seu.edu.cn)
 - Phone: [19831128936](tel:+8619831128936)
 - Mailing address: Jiulonghu Campus, Southeast University, China
 
+## Hobbies
 
+{{< hobby_gallery >}}

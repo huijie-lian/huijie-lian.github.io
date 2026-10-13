@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="max-w-prose mx-auto flex justify-center"><article class="prose prose-slate lg:prose-xl dark:prose-invert"><h1 class="lg:text-6xl">{{ .Title }}</h1>{{ .Content }}</article></div>
+{{ $paginator := .Paginate .Pages.ByDate.Reverse }}
+<div class="flex flex-col items-center">
+  {{ if eq .Params.view "citation" }}
+    {{/* Left alignment / width is set so that multiple blocks with this view & variable length content all left align. */}}
+<div class="mt-16 sm:mt-20 container max-w-3xl w-full">
+  <div class="flex flex-col space-y-3">
+
+{{ range $paginator.Pages }}{{ partial "views/citation" (dict "item" .) }}{{ end }}
+</div>
+</div>
+
+  {{ else }}
+    <div class="container max-w-[65ch] mx-auto grid grid-cols-1 gap-6 my-5">
+      {{ range $paginator.Pages }}{{ partial "views/card" (dict "item" .) }}{{ end }}
+    </div>
+  {{ end }}
+  {{ partial "components/paginator" . }}
+</div>
+{{ end }}

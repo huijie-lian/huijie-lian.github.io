@@ -1,0 +1,10 @@
+<footer class="container mx-auto flex flex-col justify-items-center text-sm leading-6 mt-24 mb-4 text-slate-700 dark:text-slate-200">
+  {{ if .IsTranslated }}
+  <div class="mx-auto flex gap-3 py-2 px-4">
+    <div class="font-bold">{{ partial "functions/get_icon" (dict "name" "globe-alt" "attributes" `class="inline-block pr-1" style="height: 1em"`) }}{{ i18n "languages" }}:</div>
+    <div class="font-bold">{{ index hugo.Data.languages .Lang }}</div>
+    {{ range .Translations }}<div><a href="{{ .Permalink }}">{{ index hugo.Data.languages .Lang }}</a></div>{{ end }}
+  </div>
+  {{ end }}
+  {{ partial "site_footer_license" . }}
+</footer>

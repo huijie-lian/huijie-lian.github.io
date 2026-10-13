@@ -1,6 +1,0 @@
-<footer class="container mx-auto flex flex-col justify-items-center text-sm leading-6 mt-24 mb-4 text-slate-700 dark:text-slate-200">
-  {{ partial "functions/get_hook" (dict "hook" "footer-start" "context" .) }}
-  {{- $footer_config := site.Params.hugoblox.footer | default dict -}}
-  {{- $footer_section_name := partial "hbx/resolve-block-param" (dict "config" $footer_config "context" "footer") | default "minimal" -}}
-  {{ partial (printf "components/footers/%s.html" $footer_section_name) . }}
-</footer>

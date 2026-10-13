@@ -1,0 +1,10 @@
+{{- $page := .page -}}
+{{- if $page.IsHome -}}
+  {{ partialCached "jsonld/website" $page }}
+{{- else if $page.IsPage -}}
+  {{- if eq $page.Type "publications" }}{{ partial "jsonld/article" . }}{{ end -}}
+  {{ partial "jsonld/webpage" . }}
+{{- else -}}
+  {{ partial "jsonld/collectionpage" . }}
+{{- end -}}
+{{- if not $page.IsHome }}{{ partial "jsonld/breadcrumbs" (dict "page" $page) }}{{ end -}}

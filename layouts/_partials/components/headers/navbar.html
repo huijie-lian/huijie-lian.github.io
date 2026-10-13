@@ -1,0 +1,60 @@
+<header id="site-header" class="header">
+<nav class="navbar px-3 flex justify-start">
+  <div class="order-0 h-full"><a class="navbar-brand" href="{{ site.Home.RelPermalink }}" title="{{ site.Params.identity.name }}">{{ site.Params.identity.name }}</a></div>
+    <!-- Mobile menu -->
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <label
+      for="nav-toggle"
+      class="order-3 cursor-pointer flex items-center lg:hidden text-[var(--hb-color-header-fg)] lg:order-1">
+      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
+        <title>Open Menu</title>
+        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+      </svg>
+      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
+        <title>Close Menu</title>
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"></polygon>
+      </svg>
+    </label>
+
+  <ul id="nav-menu" class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 justify-start">
+    {{- $current := . -}}
+    {{ range site.Menus.main }}
+      {{ $url := partial "functions/menu_url" . }}
+      <li class="nav-item"><a class="nav-link {{ if eq ($url | absURL) $current.Permalink }}active{{ end }}" href="{{ $url }}">{{ .Name }}</a></li>
+    {{ end }}
+  </ul>
+  <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+      <div class="px-3 text-[var(--hb-color-header-fg)] hover:text-primary-500
+            [&.active]:font-bold [&.active]:text-primary-500">
+        <button class="theme-toggle mt-1" accesskey="t" title="appearance">
+          <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class="block dark:hidden">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class="hidden dark:block">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
+
+    {{ if .IsTranslated }}
+    <div class="pl-1 mr-5 text-[var(--hb-color-header-fg)] hover:text-primary-500 [&.active]:font-bold [&.active]:text-primary-500">
+      {{ partial "components/language-chooser" (dict "page" .) }}
+    </div>
+    {{ end }}
+  </div>
+</nav>
+</header>

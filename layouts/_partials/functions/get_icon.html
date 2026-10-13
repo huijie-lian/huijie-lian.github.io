@@ -1,0 +1,6 @@
+{{- $name := .name -}}
+{{- if not (in $name "/") }}{{ $name = printf "hero/%s" $name }}{{ end -}}
+{{- $icon := index hugo.Data.site_icons $name | default "" -}}
+{{- if not $icon }}{{ errorf "Missing local icon: %s" $name }}{{ end -}}
+{{- with .attributes }}{{ $icon = replace $icon "<svg" (printf "<svg %s" .) }}{{ end -}}
+{{- return ($icon | safeHTML) -}}

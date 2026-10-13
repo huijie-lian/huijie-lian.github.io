@@ -1,0 +1,16 @@
+{
+  "name": "huijie-lian-academic-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bilingual academic website with local Hugo templates",
+  "scripts": {
+    "dev": "hugo server --disableFastRender",
+    "build": "hugo --gc --minify --cleanDestinationDir",
+    "postbuild": "npm run pagefind",
+    "pagefind": "pagefind --site public",
+    "check:theme": "node scripts/check-navigation.cjs"
+  },
+  "devDependencies": {
+    "pagefind": "^1.4.0"
+  }
+}

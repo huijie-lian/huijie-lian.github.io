@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale }}" dir="ltr" data-wc-theme-default="{{ site.Params.theme.mode }}">
+{{ partial "site_head" . }}
+<body class="bg-[var(--hb-color-background)] text-[var(--hb-color-foreground)] page-wrapper" id="top">
+  <div id="page-bg"></div>
+  <div class="page-header sticky top-0 z-30">{{ partial "components/headers/navbar" . }}</div>
+  <div class="page-body {{ if not .IsHome }}my-10{{ end }}">{{ block "main" . }}{{ end }}</div>
+  <div class="page-footer">{{ partial "site_footer" . }}</div>
+  <div id="hb-notification-container" class="fixed top-20 right-4 z-[9999] pointer-events-none" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

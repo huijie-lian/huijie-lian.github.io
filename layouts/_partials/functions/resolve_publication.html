@@ -1,0 +1,8 @@
+{{- $pub := .Params.publication -}}
+{{- $display := "" -}}{{- $short := "" -}}
+{{- with $pub.name }}{{ $display = printf "*%s*" . }}{{ end -}}
+{{- $short = printf "*%s*" ($pub.short_name | default $pub.name) -}}
+{{- with $pub.volume }}{{ $display = printf "%s, %v" $display . }}{{ $short = printf "%s, %v" $short . }}{{ end -}}
+{{- with $pub.issue }}{{ $display = printf "%s(%v)" $display . }}{{ $short = printf "%s(%v)" $short . }}{{ end -}}
+{{- with $pub.pages }}{{ $display = printf "%s, %s" $display . }}{{ $short = printf "%s, %s" $short . }}{{ end -}}
+{{- return (merge $pub (dict "display" $display "display_short" $short)) -}}
